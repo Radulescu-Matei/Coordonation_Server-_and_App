@@ -1,0 +1,25 @@
+name: rc_vehicle_guidance
+description: A Flutter app for guiding RC vehicles using offline calibration.
+publish_to: 'none'
+
+environment:
+  sdk: '>=2.17.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  http: ^1.4.0
+  camera: ^0.10.6
+  path_provider: ^2.1.2
+  path: ^1.8.0
+  image: ^4.0.17
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/camera_calibration.json
