@@ -216,7 +216,7 @@ class _SessionScreenState extends State<SessionScreen> {
       await _camera.initialize();
       setState(() {
         _cameraReady = true;
-        _status = 'Camera ready: ${_camera.value.previewSize}';
+        _status = 'Camera ready';
       });
     } on CameraException catch (e) {
       setState(() => _status = 'Camera error: ${e.code}');
@@ -277,9 +277,8 @@ class _SessionScreenState extends State<SessionScreen> {
     });
     _stopSession();
     try {
-      final resp = await http
-          .get(Uri.parse('http://${widget.ip}:5000/api/get_times'))
-          .timeout(Duration(seconds: 5));
+      final resp =
+          await http.get(Uri.parse('http://${widget.ip}:5000/api/get_times'));
       if (resp.statusCode == 200) {
         final raw = resp.body.trim();
         final map = raw.isNotEmpty
